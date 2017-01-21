@@ -26,6 +26,12 @@ apply {
     plugin("org.springframework.boot")
 }
 
+configure<JavaPluginConvention> {
+    setSourceCompatibility(1.8)
+    setTargetCompatibility(1.8)
+
+}
+
 repositories {
     gradleScriptKotlin()
     mavenCentral()
