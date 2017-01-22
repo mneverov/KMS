@@ -1,5 +1,6 @@
 package service
 
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.stereotype.Service
 import persistence.KmsStorage
 
@@ -7,6 +8,7 @@ import persistence.KmsStorage
  * @author Maxim Neverov
  */
 @Service
+@ComponentScan("persistence")
 class KmsServiceImpl(private val storage: KmsStorage) : KmsService {
 
     override fun get(id: String)
