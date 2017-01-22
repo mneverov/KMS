@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.*
  */
 
 @RestController
-open class DocsController {
+class DocsController {
 
     @GetMapping("/doc/{id}")
-    open fun getDoc(@PathVariable id: String): String {
+    fun getDoc(@PathVariable id: String): String {
         return "Here is doc $id"
     }
 

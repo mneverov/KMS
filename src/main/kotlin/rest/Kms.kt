@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
  * @since
  */
 @SpringBootApplication
-open class Kms
+class Kms
 
 fun main(args: Array<String>) {
     SpringApplication.run(Kms::class.java, *args)

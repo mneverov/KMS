@@ -20,6 +20,8 @@ buildscript {
         classpath("io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE")
 
         classpath(kotlinModule("gradle-plugin"))
+        // Used for "all-open" plugin or "kotlin-spring"
+        classpath("org.jetbrains.kotlin:kotlin-allopen:$kotlin_version")
     }
 }
 
@@ -28,6 +30,9 @@ apply {
     plugin("kotlin")
     // Among other things creates executable jar
     plugin("org.springframework.boot")
+    // The following make classes annotated with some Spring annotations open by default for the framework only!
+    // I.e. they cannot be inherited from the code. See https://github.com/Kotlin/KEEP/pull/40
+    plugin("kotlin-spring")
 }
 
 // This can be omitted since there is only one Spring bean with main method
