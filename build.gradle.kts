@@ -37,7 +37,7 @@ apply {
 
 // This can be omitted since there is only one Spring bean with main method
 configure<SpringBootPluginExtension> {
-    mainClass = "rest.KmsKt"
+    mainClass = "kms.KmsKt"
 }
 
 configure<JavaPluginConvention> {

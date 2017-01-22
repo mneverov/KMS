@@ -1,10 +1,11 @@
 package service
 
+import kms.service.KmsServiceImpl
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.mockito.Mockito.*
-import persistence.KmsStorage
-import persistence.MongoStorageImpl
+import kms.persistence.KmsStorage
+import kms.persistence.MongoStorageImpl
 
 /**
  * @author Maxim Neverov

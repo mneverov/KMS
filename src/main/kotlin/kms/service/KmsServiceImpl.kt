@@ -1,14 +1,14 @@
-package service
+package kms.service
 
-import org.springframework.context.annotation.ComponentScan
+import kms.persistence.KmsStorage
 import org.springframework.stereotype.Service
-import persistence.KmsStorage
 
 /**
+ * @ComponentScan("kms.persistence") can be omitted here since there is one package hierarchy.
+ *
  * @author Maxim Neverov
  */
 @Service
-@ComponentScan("persistence")
 class KmsServiceImpl(private val storage: KmsStorage) : KmsService {
 
     override fun get(id: String)

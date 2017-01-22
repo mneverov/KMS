@@ -1,11 +1,10 @@
-package rest
+package kms
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 /**
- * @author Max Neverov
- * @since
+ * @author Maxim Neverov
  */
 @SpringBootApplication
 class Kms

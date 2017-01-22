@@ -1,4 +1,4 @@
-package persistence
+package kms.persistence
 
 import com.mongodb.MongoClient
 import com.mongodb.MongoClientURI
