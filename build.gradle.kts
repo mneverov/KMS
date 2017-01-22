@@ -1,3 +1,8 @@
+import org.springframework.boot.gradle.SpringBootPluginExtension
+
+version = "0.0.1-SNAPSHOT"
+group = "KMS"
+
 buildscript {
     val kotlin_version = "1.1.0-beta-17"
     val spring_boot_version = "1.4.3.RELEASE"
@@ -13,8 +18,8 @@ buildscript {
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version")
-        // because of https://discuss.gradle.org/t/bug-in-gradle-2-14-rc1-no-service-of-type-styledtextoutputfactory/17638
-        // solution: https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/87
+        // Because of https://discuss.gradle.org/t/bug-in-gradle-2-14-rc1-no-service-of-type-styledtextoutputfactory/17638
+        // Solution: https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/87
         classpath("io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE")
 
         classpath(kotlinModule("gradle-plugin"))
@@ -24,7 +29,13 @@ buildscript {
 apply {
     plugin("java")
     plugin("kotlin")
+    // Among other things creates executable jar
     plugin("org.springframework.boot")
+}
+
+// This can be omitted since there is only one Spring bean with main method
+configure<SpringBootPluginExtension> {
+    mainClass = "rest.KmsKt"
 }
 
 configure<JavaPluginConvention> {
