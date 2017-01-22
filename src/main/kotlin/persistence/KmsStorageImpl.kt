@@ -14,11 +14,11 @@ import org.springframework.stereotype.Repository
 @Repository
 class MongoStorageImpl(mongoURI: String = "mongodb://localhost:27017") : KmsStorage {
 
-    val databaseName = "KotlinTest"
-    val collectionName = "docs"
-    val client: MongoClient = MongoClient(MongoClientURI(mongoURI))
-    val db: MongoDatabase = client.getDatabase(databaseName)
-    val docs: MongoCollection<Document> = db.getCollection(collectionName)
+    private final val databaseName = "KotlinTest"
+    private final val collectionName = "docs"
+    private final val client: MongoClient = MongoClient(MongoClientURI(mongoURI))
+    private final val db: MongoDatabase = client.getDatabase(databaseName)
+    private final val docs: MongoCollection<Document> = db.getCollection(collectionName)
 
     override fun get(id: String): String? {
         return docs.find(eq("_id", id))?.first()?.toJson()
