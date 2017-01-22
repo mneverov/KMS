@@ -58,4 +58,5 @@ dependencies {
     compile("org.mongodb:mongo-java-driver:3.4.1")
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile("junit:junit:4.11")
+    testCompile("org.mockito:mockito-core:2.5.0")
 }

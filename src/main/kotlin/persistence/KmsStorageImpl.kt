@@ -6,10 +6,12 @@ import com.mongodb.client.MongoCollection
 import com.mongodb.client.MongoDatabase
 import com.mongodb.client.model.Filters.eq
 import org.bson.Document
+import org.springframework.stereotype.Repository
 
 /**
  * @author Max Neverov
  */
+@Repository
 class MongoStorageImpl(mongoURI: String = "mongodb://localhost:27017") : KmsStorage {
 
     val databaseName = "KotlinTest"
