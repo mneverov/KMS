@@ -1,8 +1,5 @@
 import org.springframework.boot.gradle.SpringBootPluginExtension
 
-version = "0.0.1-SNAPSHOT"
-group = "KMS"
-
 buildscript {
     val kotlin_version = "1.1.0-beta-17"
     val spring_boot_version = "1.4.3.RELEASE"
