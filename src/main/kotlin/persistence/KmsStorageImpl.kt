@@ -9,9 +9,8 @@ import org.bson.Document
 
 /**
  * @author Max Neverov
- * @since
  */
-class MongoStorageImpl(mongoURI: String = "mongodb://localhost:27017") : MongoStorage {
+class MongoStorageImpl(mongoURI: String = "mongodb://localhost:27017") : KmsStorage {
 
     val databaseName = "KotlinTest"
     val collectionName = "docs"

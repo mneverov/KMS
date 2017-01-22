@@ -9,11 +9,10 @@ import org.junit.Test
 
 /**
  * @author Max Neverov
- * @since
  */
 class MongoStorageImplTest {
 
-    private val ms: MongoStorage = MongoStorageImpl()
+    private val ms: KmsStorage = MongoStorageImpl()
     private val expected = """{ "_id" : "42", "msg" : "hello" }"""
     private val gson = Gson()
     private val type = object : TypeToken<Map<String, Any>>() {}.type

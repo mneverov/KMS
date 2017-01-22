@@ -2,9 +2,8 @@ package persistence
 
 /**
  * @author Max Neverov
- * @since
  */
-interface MongoStorage {
+interface KmsStorage {
 
     fun get(id: String): String?
     fun insert(doc: String)
