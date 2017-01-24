@@ -54,7 +54,6 @@ val kotlin_version = extra["kotlin_version"]
 
 dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
-    compile("com.google.code.gson:gson:2.8.0")
     compile("org.mongodb:mongo-java-driver:3.4.1")
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile("org.springframework.boot:spring-boot-starter-test:1.4.3.RELEASE")
