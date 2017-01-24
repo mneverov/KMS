@@ -1,0 +1,16 @@
+data:
+  mongodb:
+    uri: "mongodb://localhost:27017"
+    db_name: "kms"
+    collection_name: "docs"
+
+---
+
+spring:
+  profiles: test
+
+data:
+  mongodb:
+    uri: "mongodb://localhost:27017"
+    db_name: "testDb"
+    collection_name: "testDocs"

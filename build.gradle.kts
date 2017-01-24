@@ -57,6 +57,5 @@ dependencies {
     compile("com.google.code.gson:gson:2.8.0")
     compile("org.mongodb:mongo-java-driver:3.4.1")
     compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("junit:junit:4.11")
-    testCompile("org.mockito:mockito-core:2.5.0")
+    testCompile("org.springframework.boot:spring-boot-starter-test:1.4.3.RELEASE")
 }

@@ -6,19 +6,22 @@ import com.mongodb.client.MongoCollection
 import com.mongodb.client.MongoDatabase
 import com.mongodb.client.model.Filters.eq
 import org.bson.Document
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
 /**
  * @author Max Neverov
  */
 @Repository
-class MongoStorageImpl(mongoURI: String = "mongodb://localhost:27017") : KmsStorage {
+class MongoStorageImpl
+@Autowired constructor(@Value("\${data.mongodb.uri}") val uri: String,
+                       @Value("\${data.mongodb.db_name}") val dbName: String,
+                       @Value("\${data.mongodb.collection_name}") val collectionName: String) : KmsStorage {
 
-    private final val databaseName = "KotlinTest"
-    private final val collectionName = "docs"
-    private final val client: MongoClient = MongoClient(MongoClientURI(mongoURI))
-    private final val db: MongoDatabase = client.getDatabase(databaseName)
-    private final val docs: MongoCollection<Document> = db.getCollection(collectionName)
+    private val client: MongoClient = MongoClient(MongoClientURI(uri))
+    private val db: MongoDatabase = client.getDatabase(dbName)
+    private val docs: MongoCollection<Document> = db.getCollection(collectionName)
 
     override fun get(id: String): String? {
         return docs.find(eq("_id", id))?.first()?.toJson()

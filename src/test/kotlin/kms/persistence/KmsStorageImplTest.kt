@@ -6,17 +6,24 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ActiveProfiles
+import org.springframework.test.context.junit4.SpringRunner
 
 /**
  * @author Maxim Neverov
  */
+@RunWith(SpringRunner::class)
+@SpringBootTest
+@ActiveProfiles("test")
 class MongoStorageImplTest {
 
-    private val ms: KmsStorage = MongoStorageImpl()
+    @Autowired lateinit var ms: MongoStorageImpl
     private val expected = """{ "_id" : "42", "msg" : "hello" }"""
     private val gson = Gson()
     private val type = object : TypeToken<Map<String, Any>>() {}.type
-
 
     @Before fun init() {
         val del = ms.delete("42")
@@ -45,7 +52,6 @@ class MongoStorageImplTest {
         } else {
             fail("Doc (_id = 42) was not found")
         }
-
     }
 
 }
